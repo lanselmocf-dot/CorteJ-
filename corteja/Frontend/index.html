@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorteJá - Agendamento Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="header-container">
+            <div class="logo" id="logo-home">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <line x1="9.8" y1="8.2" x2="22" y2="20.4"></line>
+                    <line x1="22" y1="3.6" x2="9.8" y2="15.8"></line>
+                </svg>
+                <span>Corte<span>Já</span></span>
+            </div>
+            <div id="quick-stats-badge" class="badge badge-confirmado" style="font-size: 0.8rem; cursor: pointer; display: none;">
+                📊 Faturamento: R$ 0,00
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- ================= PANEL: HOME ================= -->
+        <section id="panel-home" class="panel active">
+            <div class="welcome-card">
+                <h1>Bem-vindo ao CorteJá ✂️</h1>
+                <p class="subtitle">Selecione seu perfil de acesso abaixo para navegar no sistema</p>
+                
+                <div class="role-selector">
+                    <!-- Cliente Card -->
+                    <div class="role-card" id="btn-role-client">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <h3>Cliente</h3>
+                        <p>Agende serviços, consulte horários vagos e veja seu histórico de atendimentos.</p>
+                        <button class="btn btn-primary btn-sm">Acessar Painel</button>
+                    </div>
+
+                    <!-- Barbeiro Card -->
+                    <div class="role-card" id="btn-role-barber">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="6" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <line x1="9.8" y1="8.2" x2="22" y2="20.4"></line>
+                            <line x1="22" y1="3.6" x2="9.8" y2="15.8"></line>
+                        </svg>
+                        <h3>Barbeiro</h3>
+                        <p>Gerencie sua agenda diária, confirme atendimentos e visualize suas especialidades.</p>
+                        <button class="btn btn-primary btn-sm">Acessar Painel</button>
+                    </div>
+
+                    <!-- Gestor Card -->
+                    <div class="role-card" id="btn-role-manager">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <h3>Gestor</h3>
+                        <p>Faturamento, relatórios estatísticos, controle total da agenda e checkout de clientes.</p>
+                        <button class="btn btn-primary btn-sm">Acessar Painel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANEL: CLIENT ================= -->
+        <section id="panel-client" class="panel">
+            <button class="back-btn btn-to-home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg> Voltar ao Início
+            </button>
+            
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="client-book">📅 Agendar Serviço</button>
+                <button class="tab-btn" data-tab="client-profile">👤 Meu Perfil / Histórico</button>
+                <button class="tab-btn" data-tab="client-search">🔍 Busca Inteligente</button>
+            </div>
+
+            <!-- Tab: Book Appointment -->
+            <div id="tab-client-book" class="tab-content active">
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3 class="card-title">Novo Agendamento</h3>
+                        <form id="form-booking">
+                            <div class="form-group">
+                                <label for="booking-client">Selecione o Cliente</label>
+                                <select id="booking-client" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-barber">Selecione o Profissional</label>
+                                <select id="booking-barber" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-service">Selecione o Serviço</label>
+                                <select id="booking-service" class="form-control" required disabled>
+                                    <option value="">Escolha um profissional primeiro...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-date">Data da Reserva</label>
+                                <input type="date" id="booking-date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-time">Horário</label>
+                                <input type="time" id="booking-time" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Agendar Serviço</button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Perdeu o seu ID?</h3>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                            Se você é um cliente novo ou esqueceu seu ID, cadastre-se aqui para gerar um novo código de acesso.
+                        </p>
+                        <form id="form-register-client">
+                            <div class="form-group">
+                                <label for="reg-name">Nome Completo</label>
+                                <input type="text" id="reg-name" class="form-control" placeholder="Ex: Carlos Andrade" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-email">E-mail de Contato</label>
+                                <input type="email" id="reg-email" class="form-control" placeholder="Ex: carlos@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-phone">Telefone (DDD + Número)</label>
+                                <input type="text" id="reg-phone" class="form-control" placeholder="Ex: (81) 98888-3333" required>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" style="width: 100%;">Cadastrar e Obter ID</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Profile/History -->
+            <div id="tab-client-profile" class="tab-content">
+                <div class="card" style="max-width: 700px; margin: 0 auto;">
+                    <h3 class="card-title">Consultar Meu Histórico</h3>
+                    <div class="search-box">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="profile-select-client">Escolha o Cliente</label>
+                            <select id="profile-select-client" class="form-control"></select>
+                        </div>
+                        <button id="btn-load-profile" class="btn btn-primary" style="height: 42px;">Visualizar Perfil</button>
+                    </div>
+
+                    <div id="client-profile-result" style="display: none; margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent);">Detalhes do Perfil (Polimorfismo)</h4>
+                        <div class="profile-box">
+                            <div class="profile-field">
+                                <span>ID de Registro:</span>
+                                <span id="p-client-id">00</span>
+                            </div>
+                            <div class="profile-field">
+                                <span>Nome do Cliente:</span>
+                                <span id="p-client-name">-</span>
+                            </div>
+                            <div class="profile-field">
+                                <span>E-mail:</span>
+                                <span id="p-client-email">-</span>
+                            </div>
+                            <div class="profile-field">
+                                <span>Telefone:</span>
+                                <span id="p-client-phone">-</span>
+                            </div>
+                            <div class="profile-field">
+                                <span>Total Agendamentos:</span>
+                                <span id="p-client-count">0</span>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-bottom: 1rem;">Histórico de Reservas</h4>
+                        <div class="interactive-list" id="client-history-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Smart Search -->
+            <div id="tab-client-search" class="tab-content">
+                <div class="card" style="max-width: 600px; margin: 0 auto;">
+                    <h3 class="card-title">Pesquisa Inteligente de Horário Livre</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                        Nosso sistema analisa de forma recursiva a agenda do profissional selecionado no dia escolhido e informa o primeiro horário disponível.
+                    </p>
+                    <div class="search-box">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="search-barber">Barbeiro</label>
+                            <select id="search-barber" class="form-control"></select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="search-date">Data do Atendimento</label>
+                            <input type="date" id="search-date" class="form-control">
+                        </div>
+                        <button id="btn-search-recursive" class="btn btn-primary" style="height: 42px;">Pesquisar</button>
+                    </div>
+
+                    <div class="search-result" id="search-result-box">
+                        <h4 style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--accent);">🔍</span> Resultado da Busca Recursiva
+                        </h4>
+                        <p id="search-result-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANEL: BARBER ================= -->
+        <section id="panel-barber" class="panel">
+            <button class="back-btn btn-to-home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg> Voltar ao Início
+            </button>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3 class="card-title">Selecione Seu Perfil Profissional</h3>
+                <div class="barber-selector-bar" id="barber-chips-container"></div>
+            </div>
+
+            <div id="barber-panel-content" style="display: none;">
+                <div class="dashboard-grid">
+                    <!-- Barber Profile Summary -->
+                    <div class="card">
+                        <h3 class="card-title">Perfil do Barbeiro</h3>
+                        <div class="profile-box" id="barber-profile-box">
+                            <!-- Populated by JS -->
+                        </div>
+                        <h4 style="margin-bottom: 0.75rem; font-size: 1.1rem;">Serviços Oferecidos:</h4>
+                        <div class="interactive-list" id="barber-services-list" style="gap: 0.5rem;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Barber Agenda -->
+                    <div class="card">
+                        <h3 class="card-title">Agenda do Dia (Ordenada)</h3>
+                        <div class="form-group" style="max-width: 200px;">
+                            <label for="barber-filter-date">Filtrar por Data</label>
+                            <input type="date" id="barber-filter-date" class="form-control">
+                        </div>
+                        <div class="interactive-list" id="barber-agenda-list" style="margin-top: 1.5rem;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANEL: MANAGER ================= -->
+        <section id="panel-manager" class="panel">
+            <button class="back-btn btn-to-home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg> Voltar ao Início
+            </button>
+
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="manager-agenda">📋 Agenda Geral</button>
+                <button class="tab-btn" data-tab="manager-finance">📊 Relatórios Financeiros (Recursão)</button>
+                <button class="tab-btn" data-tab="manager-client">👤 Cadastro de Cliente</button>
+            </div>
+
+            <!-- Tab: General Agenda -->
+            <div id="tab-manager-agenda" class="tab-content active">
+                <div class="card">
+                    <h3 class="card-title">Gerenciador de Atendimentos</h3>
+                    
+                    <div class="search-box" style="grid-template-columns: 1fr 1fr 1fr auto;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="m-filter-barber">Profissional</label>
+                            <select id="m-filter-barber" class="form-control">
+                                <option value="">Todos os Barbeiros</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="m-filter-date">Data Específica</label>
+                            <input type="date" id="m-filter-date" class="form-control">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="m-filter-status">Status</label>
+                            <select id="m-filter-status" class="form-control">
+                                <option value="">Todos os Status</option>
+                                <option value="agendado">Agendado</option>
+                                <option value="confirmado">Confirmado</option>
+                                <option value="concluido">Concluído</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                        <button id="btn-clear-filters" class="btn btn-secondary" style="height: 42px;">Limpar Filtros</button>
+                    </div>
+
+                    <div class="interactive-list" id="manager-agenda-list" style="margin-top: 2rem;">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Financial and Status Report -->
+            <div id="tab-manager-finance" class="tab-content">
+                <div class="stats-grid">
+                    <!-- Billing Card -->
+                    <div class="stat-card">
+                        <div class="stat-icon">💵</div>
+                        <div class="stat-info">
+                            <h5>Faturamento Concluído</h5>
+                            <p id="stat-faturamento">R$ 0,00</p>
+                        </div>
+                    </div>
+                    <!-- Agendados Card -->
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <h5>Pendentes</h5>
+                            <p id="stat-agendados">0</p>
+                        </div>
+                    </div>
+                    <!-- Confirmados Card -->
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <h5>Confirmados</h5>
+                            <p id="stat-confirmados">0</p>
+                        </div>
+                    </div>
+                    <!-- Concluidos Card -->
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-info">
+                            <h5>Concluídos</h5>
+                            <p id="stat-concluidos">0</p>
+                        </div>
+                    </div>
+                    <!-- Cancelados Card -->
+                    <div class="stat-card">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-info">
+                            <h5>Cancelados</h5>
+                            <p id="stat-cancelados">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="max-width: 700px; margin: 0 auto;">
+                    <h3 class="card-title">Análise Matemática de Algoritmos</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-secondary);">
+                        As estatísticas exibidas acima são calculadas na pilha de execução do navegador utilizando **algoritmos recursivos**, sem laços <code>for</code> ou <code>while</code>, reproduzindo rigorosamente os dunders e utilitários da biblioteca original em Python:
+                    </p>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.85rem; border: 1px solid var(--border-color); color: var(--accent);">
+                        // Algoritmo de Faturamento Recursivo em JS<br>
+                        function calcularFaturamento(agendamentos, idx = 0) {<br>
+                        &nbsp;&nbsp;if (idx >= agendamentos.length) return 0.0;<br>
+                        &nbsp;&nbsp;let valor = agendamentos[idx].status === 'concluido' ? agendamentos[idx].servico.preco : 0.0;<br>
+                        &nbsp;&nbsp;return valor + calcularFaturamento(agendamentos, idx + 1);<br>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Manager Register Client -->
+            <div id="tab-manager-client" class="tab-content">
+                <div class="card" style="max-width: 600px; margin: 0 auto;">
+                    <h3 class="card-title">Novo Cadastro de Cliente</h3>
+                    <form id="form-manager-reg-client">
+                        <div class="form-group">
+                            <label for="m-reg-name">Nome Completo</label>
+                            <input type="text" id="m-reg-name" class="form-control" placeholder="Ex: Carlos Andrade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="m-reg-email">E-mail</label>
+                            <input type="email" id="m-reg-email" class="form-control" placeholder="Ex: carlos@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="m-reg-phone">Telefone</label>
+                            <input type="text" id="m-reg-phone" class="form-control" placeholder="Ex: (81) 98888-3333" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Cadastrar Cliente</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODAL: CHECKOUT ================= -->
+    <div class="modal-overlay" id="modal-checkout">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>💳 Finalizar Atendimento e Caixa</h3>
+                <button class="modal-close" id="btn-close-checkout">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="checkout-details" style="margin-bottom: 1.5rem;">
+                    <!-- Appended by JS -->
+                </div>
+                
+                <h4 style="margin-bottom: 0.75rem;">Selecione o Método de Pagamento</h4>
+                <div class="payment-grid">
+                    <div class="payment-method active" data-method="pix">
+                        📱
+                        <span>Pix (-5%)</span>
+                    </div>
+                    <div class="payment-method" data-method="credito">
+                        💳
+                        <span>Crédito</span>
+                    </div>
+                    <div class="payment-method" data-method="debito">
+                        💳
+                        <span>Débito</span>
+                    </div>
+                    <div class="payment-method" data-method="dinheiro">
+                        💵
+                        <span>Dinheiro</span>
+                    </div>
+                </div>
+
+                <!-- Option: Pix -->
+                <div id="pay-mode-pix" class="checkout-pay-mode">
+                    <div class="pix-container">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">Desconto Pix de 5% Aplicado!</p>
+                        <div class="pix-qr">
+                            <pre>
+█▀▀▀▀▀█ █ █▀▀ ▄▀ █▀▀▀▀▀█
+█ ███ █ █▄ █ ▄▀  █ ███ █
+█ ▀▀▀ █  ▀  ▄  ▄ █ ▀▀▀ █
+▀▀▀▀▀▀▀ ▀ ▀▀▀▀▀▀ ▀▀▀▀▀▀▀
+                            </pre>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Chave Pix da Barbearia:</p>
+                        <div class="pix-key">corteja-pagamentos-pix-chave-aleatoria@corteja.com</div>
+                        <p style="font-size: 0.85rem; font-weight: bold; margin-top: 0.5rem; color: var(--success);" id="pix-simulated-value"></p>
+                    </div>
+                </div>
+
+                <!-- Option: Card (Loading Simulator) -->
+                <div id="pay-mode-card" class="checkout-pay-mode" style="display: none;">
+                    <div class="card-loading">
+                        <div class="spinner"></div>
+                        <p id="card-status-text">Conectando à máquina de cartão...</p>
+                    </div>
+                </div>
+
+                <!-- Option: Cash (Troco calculator) -->
+                <div id="pay-mode-cash" class="checkout-pay-mode" style="display: none;">
+                    <div class="form-group">
+                        <label for="cash-received">Valor Pago pelo Cliente (R$)</label>
+                        <input type="number" id="cash-received" class="form-control" step="0.01" placeholder="Ex: 50.00">
+                    </div>
+                    <div id="cash-change-box" style="margin-top: 1rem; font-weight: bold; display: none;">
+                        Troco a ser devolvido: <span style="color: var(--success);" id="cash-change-value">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button class="btn btn-secondary" style="flex: 1;" id="btn-cancel-checkout">Cancelar</button>
+                    <button class="btn btn-primary" style="flex: 1.5;" id="btn-confirm-checkout">Emitir Cupom Fiscal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CUPOM FISCAL ================= -->
+    <div class="modal-overlay" id="modal-cupom">
+        <div class="modal-container" style="max-width: 450px; background: transparent; border: none; box-shadow: none;">
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 0.5rem;">
+                <button class="modal-close" id="btn-close-cupom" style="color: white; font-size: 2rem;">&times;</button>
+            </div>
+            
+            <div class="cupom-box" id="cupom-print-area">
+                <!-- Loaded dynamically by JS -->
+            </div>
+
+            <div style="text-align: center; margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn btn-primary" id="btn-print-receipt">🖨️ Imprimir Recibo</button>
+                <button class="btn btn-secondary" id="btn-finish-flow">Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CorteJá Recife. Desenvolvido por equipe junior & <span>Antigravity</span>.</p>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Laboratório de Programação - Módulos e Pacotes - POO</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
