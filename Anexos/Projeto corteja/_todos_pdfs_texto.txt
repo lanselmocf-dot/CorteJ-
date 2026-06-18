@@ -1,0 +1,878 @@
+
+===== Aula 06 - Diagramas de Classe e UML - Parte 2.pdf =====
+--- Pagina 1 ---
+Disciplina: Engenharia e 
+Modelagem de Software 
+Professor: Felipe Lima
+
+--- Pagina 2 ---
+• Modelagem unificada 
+ 
+• Diagramas de classe 
+ 
+• Relacionamento entre classes 
+ 
+ 
+ 
+ 
+ 
+Objetivos de aprendizagem
+
+--- Pagina 3 ---
+Relacionamentos entre classes 
+• Em programação orientada a objetos, as classes interagem entre si 
+para formar um sistema coeso e modular 
+ 
+• Essas interações são representadas por diferentes tipos de 
+relacionamentos, que determinam como os objetos de uma classe usam 
+ou dependem dos objetos de outra classe
+
+--- Pagina 4 ---
+Associação 
+•
+Definição: Relacionamento onde uma classe usa outra 
+ 
+•
+A associação pode ser unidirecional ou bidirecional 
+ 
+•
+Exemplo: Um Professor leciona uma Disciplina 
+ 
+•
+Características: 
+ 
+- As classes associadas podem existir de forma independente 
+ 
+- Não implica dependência forte
+
+--- Pagina 5 ---
+Associação 
+•
+No diagrama, sua sintaxe é uma linha que liga as duas classes que 
+representam os objetos relacionados
+
+--- Pagina 6 ---
+Tipos de Relacionamentos 
+• Herança: A classe filha herda comportamentos e características da 
+classe pai 
+ 
+• Associação: Duas ou mais classes se relacionam, podendo colaborar 
+sem dependências fortes 
+ 
+• Agregação: Relacionamento onde uma classe é parte de outra, mas 
+pode existir de forma independente
+
+--- Pagina 7 ---
+Tipos de Relacionamentos 
+• Composição: Uma classe depende de outra para existir; se uma é 
+destruída, a outra também é 
+ 
+• Dependência: Uma classe utiliza temporariamente outra para realizar 
+uma ação específica
+
+--- Pagina 8 ---
+Tipos de Relacionamentos 
+• Facilita a organização e o reuso de código 
+ 
+• Melhora a manutenção e escalabilidade do sistema 
+ 
+• Ajuda a definir responsabilidades e a modularidade no design de 
+software
+
+--- Pagina 9 ---
+Herança 
+• Definição: Relação entre uma classe pai (superclasse) e uma classe 
+filha (subclasse), onde a subclasse herda atributos e métodos 
+ 
+• Exemplo: Cachorro herda de Animal 
+ 
+• Características: 
+ 
+- Reutilização de código 
+ 
+- Facilita a manutenção e expansão do sistema
+
+--- Pagina 10 ---
+Herança 
+• Nesse exemplo houve a necessidade de criar uma classe mais geral, 
+porque todos os animais possuem tamanho e cor e se alimentam de 
+alguma forma
+
+--- Pagina 11 ---
+Herança 
+• Por outro lado, houve a necessidade de especializar alguns animais 
+por possuírem características únicas
+
+--- Pagina 12 ---
+Herança 
+• Exemplos:
+
+--- Pagina 13 ---
+Agregação 
+•
+Definição: Relação todo-parte onde a parte pode existir 
+independentemente do todo 
+ 
+•
+Exemplo: Um Departamento agrega Professor 
+ 
+•
+Características: 
+ 
+- A parte (professor) não depende do todo (departamento) para 
+existir
+
+--- Pagina 14 ---
+Agregação 
+•
+No diagrama, sua sintaxe é uma linha com um losango branco na 
+classe que corresponde ao todo
+
+--- Pagina 15 ---
+Agregação 
+•
+No diagrama, sua sintaxe é uma linha com um losango branco na 
+classe que corresponde ao todo
+
+--- Pagina 16 ---
+Composição 
+•
+Definição: Definição: Relação todo-parte, mas com dependência 
+forte. Se o todo for destruído, a parte também é 
+ 
+•
+Exemplo: Uma Casa composta por Cômodos 
+ 
+•
+Características: 
+ 
+- A parte (cômodos) depende do todo (casa) para existir
+
+--- Pagina 17 ---
+Composição 
+•
+No diagrama, sua sintaxe é a de uma linha com um losango preto 
+na classe que corresponde ao todo
+
+--- Pagina 18 ---
+Composição 
+•
+No diagrama, sua sintaxe é a de uma linha com um losango preto 
+na classe que corresponde ao todo
+
+--- Pagina 19 ---
+Composição 
+•
+No diagrama, sua sintaxe é a de uma linha com um losango preto 
+na classe que corresponde ao todo
+
+--- Pagina 20 ---
+Composição 
+•
+No diagrama, sua sintaxe é a de uma linha com um losango preto 
+na classe que corresponde ao todo
+
+--- Pagina 21 ---
+Composição 
+•
+Exemplo em Java
+
+--- Pagina 22 ---
+Composição 
+•
+Exemplo em Java
+
+--- Pagina 23 ---
+Composição 
+•
+Exemplo em Java
+
+
+===== Aula 6 - Projeto Backend.pdf =====
+--- Pagina 1 ---
+Projeto de Engenharia 
+de Software
+Universidade 
+Tiradentes
+Prof. Msc. Felipe Lima
+
+--- Pagina 2 ---
+Conceito
+• Durante a disciplina, será desenvolvido um sistema escolhido pelos alunos
+• Cada grupo deverá implementar algumas funcionalidades específicas e críticas
+• A linguagem de programação usada deve ser escolhida pelo grupo
+Projeto de Engenharia
+
+--- Pagina 3 ---
+Conceito
+• Um sistema real, não apenas códigos
+• Precisa ter:
+○
+Organização
+○
+Clareza
+○
+Planejamento
+O que estamos construindo?
+
+--- Pagina 4 ---
+Conceito
+• Mostram o que o sistema faz
+• Foco no usuário (ator)
+Exemplos
+○
+Usuário cadastra
+○
+Usuário acessa sistema
+○
+Usuário interage com outro sistema
+Diagramas de Casos de Uso
+
+--- Pagina 5 ---
+Conceito
+• Mostra como o sistema é estruturado
+• Classes = “blocos do sistema”
+• Elementos
+○
+Atributos
+○
+Métodos
+○
+Relacionamentos
+Diagrama de Classes
+
+--- Pagina 6 ---
+Conceito
+• Caso de uso = define funcionalidades
+• Classes = implementam essas funcionalidades
+• Código = executa tudo
+Ligação entre Artefatos de Software
+
+--- Pagina 7 ---
+Conceito
+• Transformar ideias e diagramas em códigos
+• Tudo com planejamento
+Implementação
+
+--- Pagina 8 ---
+Conceito
+• Elabore um documento apresentando:
+○
+O que o sistema faz
+○
+Como ele está organizado
+○
+Funcionamento na prática
+Entrega Atual - Missão
+
+--- Pagina 9 ---
+Conceito
+• Diagramas de Componentes (próxima aula)
+• Diagramas de Atividades
+• Diagramas de Sequência
+• Diagramas de Implantação
+Próximos Artefatos/Diagramas
+
+
+===== Aula 7 - Diagrama de Componentes.pdf =====
+--- Pagina 1 ---
+Diagrama de 
+Componentes
+Universidade 
+Tiradentes
+Prof. Msc. Felipe Lima
+
+--- Pagina 2 ---
+Conceito
+• Diagramas de Componentes (próxima aula)
+• Diagramas de Atividades
+• Diagramas de Sequência
+• Diagramas de Implantação
+Próximos Artefatos/Diagramas
+
+--- Pagina 3 ---
+Conceito
+• Diagramas de Componentes
+○
+Mostra vários componentes em um sistema e suas dependências
+○
+Apresenta uma visão estática de como o sistema está implementado e 
+quais os seus módulos de software: componentes
+○
+Muito associado a linguagem de programação
+○
+Procura associar módulos, bibliotecas, formulários, arquivos, tabelas
+Definição
+
+--- Pagina 4 ---
+Conceito
+• Diagramas de Componentes
+○
+Modelar os componentes de código-fonte e executável
+○
+Banco de dados físicos
+○
+Destacar a função de cada módulo para facilitar a reutilização
+○
+Pode ser utilizado no processo de engenharia reversa por meio da 
+organização dos módulos do sistema e seus relacionamentos
+Objetivos
+
+--- Pagina 5 ---
+Conceito
+• Qualquer parte de seu sistema pode ser representado em um diagrama de 
+componente
+• São usados para explicar a lógica os artefatos que são usados para implementar as 
+expressões lógicas de projeto do Caso de uso e Diagrama de Classes
+• Artefatos: qualquer tipo de código que implementa o componente. Se agrupam 
+normalmente em três níveis:
+○
+Componentes de Instalação: Ex. Máquina Java, DB...;
+○
+Componente de Funcionamento do produto: Jar, DLL...  
+○
+Componentes de Execução: HTML, Servlets... 
+Objetivos
+
+--- Pagina 6 ---
+Conceito
+• Componente: O componente pode ser uma página HTML, um arquivo txt, dll, jar 
+e etc
+• Um componente expõe suas interfaces  (métodos públicos) para o mundo externo. 
+Para representar isso, é possível utilizar a notação de uma interface e estereotipá-la 
+como um componente
+• É possível representar as interfaces públicas de um componente
+• Um componente normalmente é descrito por um <<esteriótipo>>
+Notação
+
+--- Pagina 7 ---
+Conceito
+• Um componente pode utilizar serviços ou depender de alguma outra forma de 
+outros componentes do sistema
+Dependências
+
+--- Pagina 8 ---
+Conceito
+• Classes manipuladas por um componente
+Dependências
+
+--- Pagina 9 ---
+Conceito
+• Representa um serviço realizado por uma classe ou componente
+• As interfaces não possuem implementação ou qualquer especificação interna
+• Se um componente implementa uma interface, este relaciona-se com ela através 
+de uma realização
+• Se um componente utiliza a interface, relacionamento de dependência
+Interface
+
+--- Pagina 10 ---
+Conceito
+• Exemplo
+Interface
+
+--- Pagina 11 ---
+Conceito
+• A forma de representar uma interface esperada
+Notação
+
+--- Pagina 12 ---
+Conceito
+• Interfaces esperadas se encontrando com interfaces fornecidas
+Notação
+
+--- Pagina 13 ---
+Conceito
+• Interfaces esperadas se encontrando com interfaces fornecidas
+Notação
+
+--- Pagina 14 ---
+Conceito
+• Interfaces esperadas se encontrando com interfaces fornecidas
+Notação
+
+
+===== POO - Herança em Java.pdf =====
+--- Pagina 1 ---
+Herança em Java - Parte 1
+Universidade Tiradentes
+Prof. Msc. Felipe Lima
+
+--- Pagina 2 ---
+Conceito
+Have more security
+•
+Tomemos como exemplo a classe Funcionario, que representa o 
+funcionário de um banco:
+Repetição de Código
+
+--- Pagina 3 ---
+Conceito
+Have more security
+•
+Além de um funcionário comum, há também outros cargos, como os 
+gerentes
+○
+Os gerentes guardam a mesma informação que um funcionário 
+comum, mas possuem outras informações, além de ter 
+funcionalidades um pouco diferentes
+○
+Vamos supor que, nesse banco, o gerente possui também uma 
+senha numérica que permite o acesso ao sistema interno do banco
+Repetição de Código
+
+--- Pagina 4 ---
+Conceito
+Have more security
+•
+Classe Gerente
+Repetição de Código
+
+--- Pagina 5 ---
+Conceito
+Have more security
+•
+Em vez de criar duas classes diferentes, uma para funcionário e outra 
+para gerente, poderíamos ter deixado a classe Funcionario mais 
+genérica, mantendo nela a senha de acesso
+○
+Caso o funcionário não fosse um gerente, deixaríamos este 
+atributo 
+vazio 
+(não 
+atribuiríamos 
+valor 
+a 
+ele)
+•
+Mas e em relação aos métodos?
+○
+A classe Gerente tem o método autentica, que não faz sentido ser 
+acionado em um funcionário que não é gerente
+Repetição de Código
+
+--- Pagina 6 ---
+Conceito
+Have more security
+•
+Se tivéssemos um outro tipo de funcionário, que tem características 
+diferentes do funcionário comum, precisaríamos criar uma outra 
+classe, e copiar o código novamente!
+○
+Ou ainda, se precisássemos adicionar uma nova informação (ex: 
+data de nascimento) para todos os funcionários?
+○
+Todas as classes teriam que ser alteradas para receber essa 
+informação
+•
+SOLUÇÃO: Centralizar as informações principais do funcionário 
+em um único lugar!
+Repetição de Código
+
+--- Pagina 7 ---
+Conceito
+Have more security
+•
+Existe uma maneira, em Java, de relacionarmos uma classe de tal 
+maneira que uma delas herde tudo que a outra tem
+○
+Isso 
+é 
+uma 
+relação 
+de 
+classe 
+mãe 
+e 
+classe 
+filha
+•
+No nosso caso, gostaríamos de fazer com que o Gerente tivesse tudo 
+que um Funcionario tem:
+○
+Gostaríamos que ela fosse uma extensão de Funcionario
+•
+Fazemos isso através da palavra extends
+Herança
+
+--- Pagina 8 ---
+Conceito
+Have more security
+•
+Classe Gerente
+Herança
+
+--- Pagina 9 ---
+Conceito
+Have more security
+•
+Todo momento que criarmos um objeto do tipo Gerente, este objeto 
+possuirá também os atributos definidos na classe Funcionario, pois 
+agora um Gerente É UM Funcionario
+Herança
+
+--- Pagina 10 ---
+Conceito
+Have more security
+•
+Termos utilizados
+Herança
+
+--- Pagina 11 ---
+Conceito
+Have more security
+•
+Notação UML
+Herança
+
+--- Pagina 12 ---
+Conceito
+Have more security
+•
+Exemplo de teste da classe
+Herança
+
+--- Pagina 13 ---
+Conceito
+Have more security
+•
+Quando uma classe usa a relação de herança, podemos dizer que essa 
+classe possui um relacionamento chamado “É um” com a classe da 
+qual 
+ela 
+herda. 
+•
+Tal relação também indica que uma classe é do mesmo tipo que 
+outra. Assim, nos exemplos anteriores, podemos dizer que Gerente “é 
+um” Funcionario
+Relacionamento “É UM”
+
+--- Pagina 14 ---
+Conceito
+Have more security
+•
+Todas as classes em Java descendem de uma 
+classe, chamada Object, mesmo que a 
+declaração extends Object seja omitida, a 
+classe Object é considerada a classe raiz da 
+hierarquia de todas as classes Java, sendo, 
+portanto, ancestral de todas as classes da 
+linguagem.
+Classe Object - O topo da hierarquia de herança
+
+--- Pagina 15 ---
+Conceito
+Have more security
+•
+Métodos herdados
+○
+a classe Object provê multiplos métodos que são automaticamente 
+herdados por todas as classes Java
+Classe Object - O topo da hierarquia de herança
+
+
+===== Polimorfismo em Java.pdf =====
+--- Pagina 1 ---
+Polimorfismo em Java
+Universidade Tiradentes
+Prof. Msc. Felipe Lima
+
+--- Pagina 2 ---
+Conceito
+Have more security
+•
+A palavra vem do grego:
+○
+poli = muitas
+○
+morphos 
+= 
+formas
+•
+É a capacidade de um mesmo método ou referência assumir 
+diferentes comportamentos dependendo do contexto
+Polimorfismo
+
+--- Pagina 3 ---
+Conceito
+Have more security
+•
+Tipos de Polimorfismo
+○
+Polimorfismo AdHoc
+○
+Polimorfismo de Inclusão
+Polimorfismo
+
+--- Pagina 4 ---
+Conceito
+Have more security
+•
+Diz respeito as funções operadoras e métodos sobrecarregados
+Polimorfismo AdHoc
+
+--- Pagina 5 ---
+Conceito
+Have more security
+•
+Polimofismo
+○
+Permite “programação no geral”
+○
+A mesma invocação pode produzir “muitas formas” de resultados
+•
+Interfaces
+○
+Implementadas pelas classes a fim de atribuir funcionalidades 
+comuns a classes possivelmente não-relacionadas
+Polimorfismo
+
+--- Pagina 6 ---
+Conceito
+Have more security
+•
+Quando um programa invoca um método por meio de uma variável de 
+superclasse, a versão correta de subclasse do método é chamada com 
+base no tipo da referência armazenada na variável da superclasse
+Polimorfismo de Inclusão
+
+--- Pagina 7 ---
+Conceito
+Have more security
+•
+Objetos de uma classe derivada devem poder substituir objetos da 
+classe base sem alterar o funcionamento correto do programa. 
+Princípio da Substituição de Liskov
+
+--- Pagina 8 ---
+Conceito
+Have more security
+•
+Classe base (Conta)
+Exemplo: Sistema Bancário
+
+--- Pagina 9 ---
+Conceito
+Have more security
+•
+Classe ContaCorrente
+Exemplo: Sistema Bancário
+
+--- Pagina 10 ---
+Conceito
+Have more security
+•
+Classe ContaPoupança
+Exemplo: Sistema Bancário
+
+--- Pagina 11 ---
+Conceito
+Have more security
+•
+É um dos métodos que toda classe herda direta ou indiretamente da 
+classe Object
+•
+Retorna uma string representando um objeto
+•
+Ele é chamado implicitamente sempre que um objeto precisa ser 
+convertido em uma representação String
+Método toString()
+
+--- Pagina 12 ---
+Conceito
+Have more security
+•
+Indica que o método toString deve sobrescrever um método de 
+superclasse
+•
+Ao tentar sobrescrever um método de superclasse, erros comuns 
+incluem nomear o método da subclasse incorretamente, ou utilizar o 
+número ou tipos incorretos dos parâmetros na lista de parâmetros. 
+Cada um desses problemas cria uma sobrecarga não intencional do 
+método de uma superclasse
+Anotação @Override
+
+
+===== Relatório do Projeto_ Cortejá - Engenharia de Software.pdf =====
+--- Pagina 1 ---
+CURSO DE ANÁLISE E DESENVOLVIMENTO DE 
+SISTEMAS 
+DISCIPLINA: ENGENHARIA DE SOFTWARE 
+ 
+RELATÓRIO DO PROJETO: CORTEJÁ - SISTEMA 
+DE AGENDAMENTO PARA BARBEARIAS 
+ 
+ 
+ 
+Integrantes: 
+ 
+●​ GABRIEL HENRIQUE MENDONÇA BATISTA 
+●​ JOÃO DANIEL MEYER PITTA MACEDO 
+●​ JULIO RODRIGO DOS SANTOS 
+●​ LEANDRO JESUS DOS SANTOS 
+●​ LUAN CARLOS COSTA FERREIRA 
+●​ LUIZ ANSELMO COSTA FERREIRA 
+ 
+Aracaju - SE 2026
+
+--- Pagina 2 ---
+2. INTRODUÇÃO 
+2.1 O que é o sistema desenvolvido 
+O Cortejá é uma plataforma digital (web/mobile) desenvolvida para otimizar o fluxo de 
+atendimento em barbearias e salões de beleza. O sistema permite que clientes agendem 
+serviços de forma autônoma, escolhendo o profissional, o horário e o serviço desejado, 
+enquanto fornece aos administradores ferramentas de gestão de agenda e controle de 
+serviços. 
+2.2 Qual problema ele resolve 
+Atualmente, muitas barbearias ainda dependem de agendamentos manuais via telefone ou 
+mensagens de texto, o que resulta em: 
+ 
+●​ Conflitos de horários (double booking); 
+●​ Esquecimento de compromissos por parte dos clientes; 
+●​ Interrupção constante do trabalho do barbeiro para atender chamadas; 
+●​ Dificuldade na gestão financeira e de produtividade da equipe. 
+ 
+O Cortejá elimina esses gargalos através de um fluxo automatizado e centralizado. 
+2.3 Objetivo do projeto 
+O objetivo principal é desenvolver um sistema robusto e intuitivo que facilite a conexão entre 
+barbeiros e clientes, garantindo uma gestão eficiente do tempo e uma experiência de usuário 
+moderna e ágil. 
+ 
+ 
+3. DESCRIÇÃO DOS USUÁRIOS (ATORES) 
+No sistema Cortejá, identificamos dois atores principais: 
+ 
+Ator 
+Papel no Sistema 
+Cliente 
+Realiza o cadastro no sistema, visualiza a 
+disponibilidade dos profissionais, seleciona 
+serviços (corte de cabelo, barba, etc.) e 
+confirma o agendamento. Pode também 
+cancelar ou reagendar horários.
+
+--- Pagina 3 ---
+Ator 
+Papel no Sistema 
+Barbeiro / Administrador 
+Gerencia sua própria agenda, define horários 
+de trabalho, cadastra novos serviços e 
+preços, e visualiza o histórico de 
+atendimentos realizados. O administrador 
+também tem acesso a relatórios de 
+faturamento. 
+ 
+ 
+4. CASOS DE USO 
+Abaixo, listamos os principais casos de uso que compõem a lógica de negócio do sistema: 
+ 
+1.​ UC01 - Realizar Cadastro: O cliente ou barbeiro cria uma conta fornecendo dados 
+básicos. 
+2.​ UC02 - Agendar Serviço: O cliente seleciona o serviço, o profissional e o horário 
+disponível. 
+3.​ UC03 - Gerenciar Agenda: O barbeiro visualiza, confirma ou altera os agendamentos 
+do dia. 
+4.​ UC04 - Cancelar Agendamento: Permite que ambas as partes cancelem o horário com 
+antecedência mínima definida. 
+ 
+Diagrama de Casos de Uso (Descrição): O diagrama apresenta o ator Cliente conectado aos 
+casos de uso de Cadastro, Agendamento e Cancelamento. O ator Barbeiro está conectado ao 
+Gerenciamento de Agenda e Cadastro de Serviços. 
+ 
+ 
+5. DIAGRAMA DE CLASSES 
+O modelo de dados segue a lógica de Orientação a Objetos para garantir escalabilidade. 
+5.1 Principais Classes 
+●​ Classe Usuario: Classe base contendo id, nome, email e telefone. 
+●​ Classe Agendamento: Relaciona um Cliente, um Barbeiro e um Servico, 
+contendo atributos como data, hora e status. 
+●​ Classe Servico: Define o tipo de atendimento, contendo nomeServico, preco e 
+duracaoEstimada.
+
+--- Pagina 4 ---
+5.2 Atributos e Métodos 
+●​ Agendamento: 
+●​ Atributos: private LocalDateTime dataHora, private String status. 
+●​ Métodos: confirmarAgendamento(), cancelar(). 
+ 
+ 
+6. ENCAPSULAMENTO 
+6.1 Como foi aplicado 
+No projeto Cortejá, o encapsulamento foi aplicado para proteger a integridade dos dados 
+sensíveis. Todos os atributos das classes de modelo foram definidos como private. O acesso 
+e a modificação desses dados ocorrem exclusivamente através de métodos públicos getters 
+e setters. 
+6.2 Exemplos Práticos 
+Na classe Agendamento, o atributo status não pode ser alterado diretamente para evitar que 
+um agendamento seja marcado como "concluído" sem passar pela validação de pagamento. 
+ 
+private String status; 
+ 
+public String getStatus() { 
+ 
+    return this.status; 
+ 
+} 
+ 
+public void setStatus(String novoStatus) { 
+ 
+    if (validarTransicao(novoStatus)) { 
+ 
+        this.status = novoStatus; 
+ 
+    } 
+ 
+}
+
+--- Pagina 5 ---
+6.3 Importância no sistema 
+Isso garante que regras de negócio sejam respeitadas (por exemplo, um preço não pode ser 
+negativo) e facilita a manutenção do código, pois mudanças internas na classe não afetam 
+quem a utiliza de fora. 
+ 
+ 
+7. USO DO SCRUM 
+7.1 Organização da Equipe 
+A equipe foi dividida seguindo os papéis do Scrum: um integrante atuou como Scrum Master, 
+outro como Product Owner, e os demais como Development Team. 
+7.2 Sprints 
+O projeto foi executado em 4 Sprints de uma semana cada: 
+ 
+●​ Sprint 1: Levantamento de requisitos e criação dos diagramas de Casos de Uso. 
+●​ Sprint 2: Modelagem do Banco de Dados e Diagrama de Classes. 
+●​ Sprint 3: Desenvolvimento do Backend e implementação do encapsulamento. 
+●​ Sprint 4: Finalização da interface e testes de integração. 
+7.3 Dificuldades Encontradas 
+A maior dificuldade foi a conciliação da lógica de horários (evitar sobreposição de 
+agendamentos no mesmo profissional) e a gestão de tempo da equipe durante as Sprints 
+curtas. 
+ 
+ 
+8. DESAFIOS E SOLUÇÕES 
+●​ Desafio: Sincronização de horários em tempo real. 
+●​ Solução: Implementação de uma trava de banco de dados (locking) que impede que 
+dois clientes selecionem o mesmo horário simultaneamente durante o checkout.
+
+--- Pagina 6 ---
+9. CONCLUSÃO 
+9.1 Aprendizados 
+O projeto permitiu consolidar conhecimentos de UML, Padrões de Projeto e Metodologias 
+Ágeis. A transição da teoria para a prática mostrou como a documentação prévia economiza 
+tempo de codificação. 
+9.2 Pontos Positivos e Melhorias 
+●​ Positivo: A interface ficou intuitiva e o fluxo de agendamento funcional. 
+●​ Melhoria: No futuro, pretendemos implementar um sistema de pagamentos online e 
+notificações via WhatsApp. 
+9.3 Pergunta Reflexiva 
+Como o uso de diagramas e do encapsulamento ajudou no desenvolvimento do projeto? 
+O uso de diagramas (Casos de Uso e Classes) serviu como um mapa para a equipe, evitando 
+ambiguidades sobre o que deveria ser construído. Já o encapsulamento permitiu que o 
+desenvolvimento fosse modular; pudemos alterar a lógica interna de uma classe sem "quebrar" 
+outras partes do sistema, garantindo segurança e organização ao código. 
+ 
+ 
+Referências 
+1.​ Documento de Diretrizes do Projeto de Engenharia de Software. 
+2.​ https://youtu.be/JQSsqMCVi1k?si=EAaAujAB98GSsDUb 
+3.​ https://youtu.be/OTO1MBMmH9g?si=CqQoNPZ0SsJHDSZK 
+4.​ Normas ABNT para Trabalhos Acadêmicos.
+

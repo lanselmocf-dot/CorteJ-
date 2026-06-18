@@ -1,9 +1,0 @@
-{
-  "$schema": "https://context7.com/schema/context7.json",
-  "projectTitle": "Projeto unidade 02_Lab_Prog",
-  "description": "Python project",
-  "folders": ["."],
-  "excludeFolders": [".venv", "venv", "__pycache__"],
-  "excludeFiles": [],
-  "rules": []
-}
